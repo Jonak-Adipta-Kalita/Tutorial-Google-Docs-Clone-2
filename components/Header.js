@@ -26,6 +26,16 @@ export default function Header() {
 					className="flex-grow px-5 text-base bg-transparent outline-none"
 				/>
 			</div>
+			<Button
+				color="gray"
+				buttonType="outline"
+				rounded={true}
+				iconOnly={true}
+				ripple="dark"
+				className="hidden md:inline-flex ml-5 md:ml-20 h-20 w-20 border-0"
+			>
+				<Icon name="apps" size="3xl" />
+			</Button>
 		</div>
 	);
 }
