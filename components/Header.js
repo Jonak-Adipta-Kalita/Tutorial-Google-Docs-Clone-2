@@ -1,9 +1,11 @@
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 import { signOut, useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 export default function Header() {
 	const [session] = useSession();
+	const router = useRouter();
 	return (
 		<header className="sticky top-0 z-50 flex items-center px-4 py-2 shadow-md bg-white">
 			<Button
@@ -15,7 +17,12 @@ export default function Header() {
 			>
 				<Icon name="menu" size="3xl" />
 			</Button>
-			<Icon name="description" size="5xl" color="blue" />
+			<Icon
+				name="description"
+				size="5xl"
+				color="blue"
+				onClick={() => router.push("/")}
+			/>
 			<h1 className="hidden md:inline-flex ml-2 text-gray-700 text-2xl">
 				Docs
 			</h1>
