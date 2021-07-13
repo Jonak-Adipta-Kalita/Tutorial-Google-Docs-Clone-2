@@ -9,7 +9,7 @@ import { db } from "../firebase";
 import { useSession } from "next-auth/client";
 import firebase from "firebase";
 
-export default function BodyTop() {
+export default function Body() {
 	const [session] = useSession();
 	const [showModal, setShowModal] = useState(false);
 	const [input, setInput] = useState("");
@@ -88,6 +88,23 @@ export default function BodyTop() {
 						<p className="ml-2 mt-2 font-semibold text-sm text-gray-700">
 							Blank
 						</p>
+					</div>
+				</div>
+			</section>
+			<section className="bg-white px-10 md:px-0">
+				<div className="max-w-3xl mx-auto py-8 text-sm text-gray-700">
+					<div className="flex items-center justify-between pb-5">
+						<h2 className="font-medium flex-grow">
+							My Documents
+						</h2>
+						<p className="mr-12">
+							Date Created
+						</p>
+						<Icon
+							name="folder"
+							size="3xl"
+							color="gray"
+						/>
 					</div>
 				</div>
 			</section>
