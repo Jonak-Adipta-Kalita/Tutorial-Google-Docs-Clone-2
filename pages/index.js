@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import BodyTop from "../components/BodyTop";
 import BodyBottom from "../components/BodyBottom";
 import Login from "../components/Login";
-import { useSession } from 'next-auth/client';
+import { useSession, getSession } from 'next-auth/client';
 
 export default function Home() {
 	const [session] = useSession();
@@ -19,4 +19,13 @@ export default function Home() {
 			<BodyBottom />
 		</div>
 	);
+}
+
+export async function getServerSideProps(context) {
+	const session = await getSession(context);
+	return {
+		props: {
+			session,
+		}
+	}
 }

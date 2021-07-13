@@ -3,6 +3,7 @@ import Icon from "@material-tailwind/react/Icon";
 import Image from "next/image";
 
 export default function BodyTop() {
+	const createNewDocument = () => {}
 	return (
 		<section className="bg-[#F8F9FA] pb-10 px-10">
 			<div className="max-w-3xl mx-auto">
@@ -28,6 +29,7 @@ export default function BodyTop() {
 						<Image 
 							src="https://links.papareact.com/pju"
 							layout="fill"
+							onClick={createNewDocument}
 						/>
 					</div>
 					<p className="ml-2 mt-2 font-semibold text-sm text-gray-700">
