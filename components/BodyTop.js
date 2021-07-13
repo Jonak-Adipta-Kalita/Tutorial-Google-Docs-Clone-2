@@ -5,11 +5,27 @@ import Image from "next/image";
 import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
+import { db } from "../firebase";
+import { useSession } from "next-auth/client";
+import firebase from "firebase";
 
 export default function BodyTop() {
+	const [session] = useSession();
 	const [showModal, setShowModal] = useState(false);
 	const [input, setInput] = useState("");
-	const createDocument = () => {};
+	const createDocument = () => {
+		if (!input) return
+		db
+			.collection("userDocs")
+			.doc(session.user.email)
+			.collection("docs")
+			.add({
+				fileName: input,
+				timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+			});
+		setInput("");
+		setShowModal(false);
+	};
 	const modal = (
 		<Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
 			<ModalBody>
